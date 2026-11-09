@@ -15,7 +15,7 @@ const origins = (process.env.CORS_ORIGIN || "http://localhost:3000")
 const createApi = () => {
   const app = express();
   app.disable("x-powered-by");
-  app.set("trust proxy", 1);
+  app.set("trust proxy", true);
   app.use(cors({ origin: origins }));
   app.use(compression());
 

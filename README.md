@@ -41,7 +41,7 @@ Frontend: http://localhost:3000, backend: http://localhost:5000.
 | --- | --- |
 | `DATABASE_URL` | Строка подключения к PostgreSQL (Neon). Если пусто — используются `DB_*` |
 | `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` | Локальная база |
-| `CORS_ORIGIN` | Адрес frontend, можно несколько через запятую |
+| `CORS_ORIGIN` | Адрес frontend для прямых запросов (при переадресации через /api не нужен) |
 | `ADMIN_LOGIN` | Логин админа |
 | `ADMIN_PASSWORD` | Пароль админа |
 | `ADMIN_SECRET` | Длинная случайная строка для подписи токенов |
@@ -51,18 +51,20 @@ Frontend: http://localhost:3000, backend: http://localhost:5000.
 
 | Переменная | Описание |
 | --- | --- |
-| `NEXT_PUBLIC_API_URL` | Адрес backend |
+| `API_URL` | Адрес backend. Сайт обращается к `/api/...`, а Next.js переадресует запросы на этот адрес |
 
-## Деплой
+## Деплой: GitHub + Vercel + Neon
 
-1. **Neon** — создать проект, скопировать `DATABASE_URL`, вписать его в `backend/.env` и выполнить `npm run db:init` в папке `backend`.
-2. **Render** — Web Service из этого репозитория:
+Один репозиторий, два проекта на Vercel и база на Neon.
+
+1. **Neon** — создать проект, скопировать строку подключения (pooled), вписать её в `backend/.env` как `DATABASE_URL` и выполнить `npm run db:init` в папке `backend`.
+2. **Vercel, проект backend** — импортировать этот репозиторий:
    - Root Directory: `backend`
-   - Build Command: `npm install --include=dev && npm run build`
-   - Start Command: `npm start`
-   - Health Check Path: `/health`
-   - переменные: `DATABASE_URL`, `CORS_ORIGIN`, `ADMIN_LOGIN`, `ADMIN_PASSWORD`, `ADMIN_SECRET`, `NODE_ENV=production`
-3. **Vercel** — проект из этого репозитория:
+   - Framework Preset: Other
+   - переменные: `DATABASE_URL`, `ADMIN_LOGIN`, `ADMIN_PASSWORD`, `ADMIN_SECRET`, `NODE_ENV=production`
+   - проверка: `https://<адрес-backend>/health` отвечает `{"message":"ok"}`
+3. **Vercel, проект frontend** — импортировать этот же репозиторий ещё раз:
    - Root Directory: `frontend`
-   - переменная: `NEXT_PUBLIC_API_URL` = адрес сервиса на Render
-4. На Render в `CORS_ORIGIN` указать адрес сайта на Vercel.
+   - Framework Preset: Next.js
+   - переменная: `API_URL` = адрес проекта backend, например `https://examdo-api.vercel.app`
+4. Адрес сайта — адрес проекта frontend. Его можно вписать в поле Website в блоке About репозитория на GitHub.

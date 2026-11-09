@@ -4,6 +4,8 @@ export const pool = process.env.DATABASE_URL
   ? new Pool({
       connectionString: process.env.DATABASE_URL,
       ssl: { rejectUnauthorized: false },
+      max: 3,
+      idleTimeoutMillis: 10000,
     })
   : new Pool({
       database: process.env.DB_NAME || "examdo",
