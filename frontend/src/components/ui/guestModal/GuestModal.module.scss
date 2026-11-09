@@ -1,0 +1,144 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(4, 6, 8, 0.86);
+  .modal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background: #101519;
+    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.5);
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #c7ff5d;
+      color: #0a0d0c;
+      box-shadow: 0 0 24px rgba(199, 255, 93, 0.16);
+      svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+    h2 {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 30px;
+      letter-spacing: -0.03em;
+    }
+    p {
+      margin-top: 8px;
+      color: #9aa3a1;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    input {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      color: #f5f7f7;
+      font: inherit;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.15s;
+      &::placeholder {
+        color: #626b69;
+      }
+      &:focus {
+        border-color: rgba(199, 255, 93, 0.5);
+      }
+    }
+    .error {
+      margin-top: 8px;
+      color: #ff6b63;
+      font-size: 13px;
+    }
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: #c7ff5d;
+      color: #0a0e0a;
+      font-size: 15px;
+      font-weight: 700;
+      transition: background 0.15s;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+      &:hover:not(:disabled) {
+        background: #d4ff81;
+      }
+      &:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+    }
+    .back {
+      margin-top: 8px;
+      padding: 10px;
+      background: transparent;
+      color: #8e9795;
+      font-size: 14px;
+      font-weight: 500;
+      &:hover:not(:disabled) {
+        background: transparent;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .overlay {
+    padding: 16px;
+    .modal {
+      padding: 22px;
+      border-radius: 20px;
+      .logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+      h2 {
+        margin-top: 16px;
+        font-size: 20px;
+        line-height: 26px;
+      }
+      p {
+        font-size: 13px;
+        line-height: 20px;
+      }
+      input {
+        margin-top: 18px;
+        padding: 12px 14px;
+        border-radius: 12px;
+      }
+      button {
+        padding: 13px 20px;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,648 @@
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 64px 20px;
+  .head {
+    max-width: 672px;
+    margin-bottom: 24px;
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 36px;
+      letter-spacing: -0.04em;
+    }
+    p {
+      margin-top: 12px;
+      color: #838c8a;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    .levels {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      background: #0d1215;
+      button {
+        padding: 8px 18px;
+        border-radius: 999px;
+        color: #9ca4a2;
+        font-size: 14px;
+        font-weight: 600;
+        transition:
+          background 0.15s,
+          color 0.15s;
+        &:hover {
+          color: #fff;
+        }
+      }
+      .active,
+      .active:hover {
+        background: #c7ff5d;
+        color: #0b100c;
+      }
+    }
+    .counter {
+      color: #8e9795;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+  .card {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    background: #101519;
+  }
+  .run {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: #c7ff5d;
+    color: #0a0e0a;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    transition: background 0.15s;
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+    &:hover:not(:disabled) {
+      background: #d4ff81;
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: wait;
+    }
+  }
+  .status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 320px;
+    padding: 24px;
+    color: #8e9795;
+    font-size: 14px;
+    text-align: center;
+  }
+  .result {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+    .resultKicker {
+      color: #c7ff5d;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h3 {
+      margin-top: 12px;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 520px;
+      margin: 24px 0;
+      div {
+        padding: 20px;
+        border: 1px solid;
+        border-radius: 16px;
+        p {
+          font-size: 36px;
+          font-weight: 600;
+          line-height: 1.1;
+          letter-spacing: -0.04em;
+        }
+        span {
+          display: block;
+          margin-top: 6px;
+          color: #9ca4a2;
+          font-size: 14px;
+        }
+      }
+      .goodStat {
+        border-color: rgba(199, 255, 93, 0.3);
+        background: rgba(199, 255, 93, 0.06);
+        p {
+          color: #c7ff5d;
+        }
+      }
+      .badStat {
+        border-color: rgba(255, 107, 99, 0.3);
+        background: rgba(255, 107, 99, 0.06);
+        p {
+          color: #ff6b63;
+        }
+      }
+    }
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    .task {
+      padding: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      .taskTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        .lang {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #c7ff5d;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 16px;
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+        .attempts {
+          padding: 4px 10px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 999px;
+          color: #8e9795;
+          font-size: 11px;
+          font-weight: 500;
+          white-space: nowrap;
+        }
+      }
+      h3 {
+        margin-top: 16px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: -0.025em;
+      }
+      .text {
+        margin-top: 12px;
+        color: #939c9a;
+        font-size: 14px;
+        line-height: 23px;
+      }
+      .example {
+        margin-top: 20px;
+        padding: 16px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        background: #0b0f12;
+        > p {
+          color: #626b69;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+        }
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-top: 12px;
+          font-family: var(--font-mono), monospace;
+          font-size: 12px;
+          line-height: 18px;
+          overflow-wrap: anywhere;
+          span:first-child {
+            color: #747d7b;
+          }
+          span:last-child {
+            color: #dce2df;
+          }
+          p:last-child span:last-child {
+            color: #c7ff5d;
+          }
+        }
+      }
+      .rules {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 18px;
+        > div > p {
+          color: #747d7b;
+          font-size: 12px;
+        }
+        .chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 6px;
+          code {
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-family: var(--font-mono), monospace;
+            font-size: 11px;
+          }
+          .need {
+            border: 1px solid rgba(199, 255, 93, 0.25);
+            background: rgba(199, 255, 93, 0.06);
+            color: #c7ff5d;
+          }
+          .ban {
+            border: 1px solid rgba(255, 107, 99, 0.22);
+            background: rgba(255, 107, 99, 0.05);
+            color: #ff8f88;
+          }
+        }
+      }
+    }
+    .editor {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: #0c1013;
+      .editorTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 52px;
+        padding: 0 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        .dots {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            &:nth-child(1) {
+              background: rgba(255, 107, 99, 0.7);
+            }
+            &:nth-child(2) {
+              background: rgba(255, 196, 93, 0.7);
+            }
+            &:nth-child(3) {
+              background: rgba(125, 220, 117, 0.7);
+            }
+          }
+          p {
+            margin-left: 12px;
+            color: #636c6a;
+            font-size: 11px;
+          }
+        }
+        button {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 0 10px 12px;
+          color: #707977;
+          font-size: 11px;
+          transition: color 0.15s;
+          svg {
+            width: 14px;
+            height: 14px;
+          }
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+      .output {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 20px;
+        &:empty {
+          display: none;
+        }
+        &:not(:empty) {
+          padding-bottom: 16px;
+        }
+      }
+      .feedback {
+        padding: 14px 16px;
+        border: 1px solid;
+        border-radius: 14px;
+        font-size: 13px;
+        line-height: 20px;
+        .feedbackTitle {
+          margin-bottom: 4px;
+          font-size: 14px;
+          font-weight: 700;
+        }
+        .note {
+          margin-top: 6px;
+          color: #8e9795;
+          font-size: 12px;
+        }
+        .details {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          margin-top: 10px;
+          font-family: var(--font-mono), monospace;
+          font-size: 12px;
+          overflow-wrap: anywhere;
+          span {
+            color: #8e9795;
+          }
+        }
+      }
+      .good {
+        border-color: rgba(199, 255, 93, 0.35);
+        background: rgba(199, 255, 93, 0.07);
+        color: #dff7b0;
+        .feedbackTitle {
+          color: #c7ff5d;
+        }
+      }
+      .bad {
+        border-color: rgba(255, 107, 99, 0.35);
+        background: rgba(255, 107, 99, 0.07);
+        color: #f3c9c6;
+        .feedbackTitle {
+          color: #ff6b63;
+        }
+      }
+      .warn {
+        border-color: rgba(255, 196, 93, 0.35);
+        background: rgba(255, 196, 93, 0.07);
+        color: #f5e2c0;
+        .feedbackTitle {
+          color: #ffc45d;
+        }
+      }
+      .loadingText {
+        color: #8e9795;
+        font-size: 13px;
+      }
+      .solution {
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        background: #0b0f12;
+        .solutionTitle {
+          color: #c7ff5d;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          &:not(:first-child) {
+            margin-top: 16px;
+          }
+        }
+        pre {
+          margin-top: 10px;
+          padding: 12px 14px;
+          overflow-x: auto;
+          border-radius: 10px;
+          background: #080b0f;
+          color: #d7dedb;
+          font-family: var(--font-mono), monospace;
+          font-size: 12px;
+          line-height: 20px;
+        }
+        ol {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-top: 10px;
+          padding-left: 20px;
+          color: #c5ccca;
+          font-size: 13px;
+          line-height: 20px;
+          li {
+            list-style: decimal;
+          }
+        }
+      }
+      .editorBottom {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: auto;
+        padding: 16px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        span {
+          color: #59615f;
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    .head h2 {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    .grid .editor .editorBottom {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 72px 32px;
+    .grid {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      .task {
+        padding: 28px;
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.07);
+      }
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .container {
+    padding: 32px 16px;
+    .head {
+      margin-bottom: 16px;
+      h2 {
+        font-size: 24px;
+        line-height: 30px;
+      }
+      p {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+    .toolbar {
+      margin-bottom: 10px;
+      .levels button {
+        padding: 7px 14px;
+        font-size: 13px;
+      }
+      .counter {
+        font-size: 12px;
+      }
+    }
+    .card {
+      border-radius: 20px;
+    }
+    .run {
+      padding: 11px 16px;
+      font-size: 13px;
+      line-height: 18px;
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    .status {
+      min-height: 220px;
+      font-size: 13px;
+    }
+    .result {
+      padding: 16px;
+      .resultKicker {
+        font-size: 11px;
+      }
+      h3 {
+        margin-top: 8px;
+        font-size: 18px;
+      }
+      .stats {
+        gap: 8px;
+        margin: 16px 0;
+        div {
+          padding: 14px;
+          border-radius: 12px;
+          p {
+            font-size: 28px;
+          }
+          span {
+            margin-top: 2px;
+            font-size: 12px;
+          }
+        }
+      }
+      .run {
+        width: 100%;
+      }
+    }
+    .grid {
+      .task {
+        padding: 16px;
+        .taskTop .lang {
+          font-size: 11px;
+          svg {
+            width: 14px;
+            height: 14px;
+          }
+        }
+        h3 {
+          margin-top: 10px;
+          font-size: 18px;
+          line-height: 24px;
+        }
+        .text {
+          margin-top: 8px;
+          font-size: 13px;
+          line-height: 21px;
+        }
+        .example {
+          margin-top: 14px;
+          padding: 12px 14px;
+          border-radius: 12px;
+          > p {
+            font-size: 10px;
+          }
+          div {
+            gap: 6px;
+            margin-top: 8px;
+            font-size: 11px;
+          }
+        }
+        .rules {
+          gap: 10px;
+          margin-top: 14px;
+          > div > p {
+            font-size: 11px;
+          }
+          .chips code {
+            font-size: 10px;
+          }
+        }
+      }
+      .editor {
+        .editorTop {
+          height: 42px;
+          padding: 0 14px;
+          .dots {
+            gap: 6px;
+            span {
+              width: 8px;
+              height: 8px;
+            }
+            p {
+              margin-left: 8px;
+            }
+          }
+        }
+        .output {
+          padding: 0 12px;
+          &:not(:empty) {
+            padding-top: 4px;
+            padding-bottom: 12px;
+          }
+        }
+        .feedback {
+          padding: 12px 14px;
+          border-radius: 12px;
+          font-size: 12px;
+          line-height: 18px;
+          .feedbackTitle {
+            font-size: 13px;
+          }
+          .details {
+            font-size: 11px;
+          }
+        }
+        .solution {
+          padding: 12px;
+          border-radius: 12px;
+          pre {
+            font-size: 11px;
+            line-height: 18px;
+          }
+          ol {
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+        .editorBottom {
+          gap: 10px;
+          padding: 12px 14px;
+          span {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

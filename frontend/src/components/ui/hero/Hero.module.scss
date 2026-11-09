@@ -1,0 +1,427 @@
+.container {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 120px 20px 64px;
+  .glow {
+    position: absolute;
+    top: calc(4% - 100px);
+    left: calc(18% - 100px);
+    width: 640px;
+    height: 640px;
+    background: radial-gradient(
+      circle closest-side,
+      rgba(199, 255, 93, 0.06),
+      rgba(199, 255, 93, 0.025) 45%,
+      transparent
+    );
+    pointer-events: none;
+  }
+  .mainContainer {
+    position: relative;
+    display: grid;
+    align-items: center;
+    gap: 56px;
+    .info {
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 24px;
+        padding: 8px 14px;
+        border: 1px solid rgba(199, 255, 93, 0.2);
+        border-radius: 999px;
+        background: rgba(199, 255, 93, 0.06);
+        color: #d5ff84;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 16px;
+        svg {
+          width: 14px;
+          height: 14px;
+        }
+      }
+      h1 {
+        max-width: 640px;
+        font-size: 44px;
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+      }
+      .text {
+        max-width: 570px;
+        margin-top: 28px;
+        color: #9aa3a1;
+        font-size: 17px;
+        line-height: 28px;
+      }
+      .buttons {
+        display: flex;
+        margin-top: 36px;
+        .primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          padding: 14px 24px;
+          border-radius: 999px;
+          background: #c7ff5d;
+          color: #0a0e0a;
+          font-size: 15px;
+          font-weight: 700;
+          transition: background 0.15s;
+          svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.15s;
+          }
+          &:hover {
+            background: #d4ff81;
+            svg {
+              transform: translateX(4px);
+            }
+          }
+        }
+      }
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px 28px;
+        margin-top: 40px;
+        color: #747d7b;
+        font-size: 12px;
+        span {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          svg {
+            width: 16px;
+            height: 16px;
+            color: #c7ff5d;
+          }
+        }
+      }
+    }
+    .preview {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      .previewGlow {
+        position: absolute;
+        inset: -100px;
+        background: radial-gradient(
+          ellipse closest-side,
+          rgba(199, 255, 93, 0.05),
+          transparent
+        );
+        pointer-events: none;
+      }
+      .card {
+        position: relative;
+        overflow: hidden;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 28px;
+        background: #101519;
+        box-shadow: 0 35px 90px rgba(0, 0, 0, 0.45);
+        .cardInner {
+          padding: 24px;
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 21px;
+          background: #0b0f12;
+          .cardTop {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            .cardKicker {
+              color: #697270;
+              font-size: 12px;
+              font-weight: 500;
+              letter-spacing: 0.16em;
+              text-transform: uppercase;
+            }
+            .cardTitle {
+              margin-top: 8px;
+              font-size: 20px;
+              font-weight: 600;
+              line-height: 28px;
+              letter-spacing: -0.025em;
+            }
+            .status {
+              padding: 6px 12px;
+              border-radius: 999px;
+              background: rgba(199, 255, 93, 0.1);
+              color: #c7ff5d;
+              font-size: 12px;
+              font-weight: 600;
+            }
+          }
+          .module {
+            margin-top: 28px;
+            & + .module {
+              margin-top: 16px;
+            }
+            .moduleRow {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 12px;
+              font-size: 12px;
+              span:first-child {
+                color: #828b89;
+              }
+              span:last-child {
+                color: #c7ff5d;
+                font-weight: 600;
+              }
+            }
+            .bar {
+              height: 8px;
+              overflow: hidden;
+              border-radius: 999px;
+              background: rgba(255, 255, 255, 0.06);
+              div {
+                height: 100%;
+                border-radius: 999px;
+                background: #c7ff5d;
+                transition: width 0.3s;
+              }
+            }
+          }
+          .next {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 28px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            background: #12181b;
+            transition: border-color 0.15s;
+            .nextIcon {
+              display: grid;
+              place-items: center;
+              flex-shrink: 0;
+              width: 44px;
+              height: 44px;
+              border-radius: 12px;
+              background: #c7ff5d;
+              color: #0c110d;
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+            }
+            .nextInfo {
+              flex: 1;
+              min-width: 0;
+              p:first-child {
+                overflow: hidden;
+                font-size: 14px;
+                font-weight: 600;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+              p:last-child {
+                margin-top: 4px;
+                color: #747d7b;
+                font-size: 12px;
+              }
+            }
+            .nextArrow {
+              display: grid;
+              place-items: center;
+              width: 32px;
+              height: 32px;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 50%;
+              color: #aeb6b4;
+              svg {
+                width: 16px;
+                height: 16px;
+              }
+            }
+            &:hover {
+              border-color: rgba(199, 255, 93, 0.3);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .container .mainContainer {
+    .info {
+      h1 {
+        font-size: 46px;
+      }
+      .text {
+        font-size: 18px;
+      }
+    }
+    .preview .card .cardInner {
+      padding: 28px;
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .container {
+    padding: 80px 16px 32px;
+    .glow {
+      top: 0;
+      left: -60px;
+      width: 420px;
+      height: 420px;
+    }
+    .mainContainer {
+      gap: 32px;
+      .info {
+        .badge {
+          gap: 6px;
+          margin-bottom: 16px;
+          padding: 6px 10px;
+          font-size: 11px;
+          line-height: 14px;
+          svg {
+            width: 12px;
+            height: 12px;
+          }
+        }
+        h1 {
+          font-size: 32px;
+          line-height: 1.08;
+          letter-spacing: -0.045em;
+        }
+        .text {
+          margin-top: 14px;
+          font-size: 14px;
+          line-height: 22px;
+        }
+        .buttons {
+          margin-top: 20px;
+          .primary {
+            flex: 1;
+            gap: 6px;
+            padding: 12px;
+            font-size: 14px;
+            line-height: 18px;
+            svg {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+        .features {
+          gap: 8px 16px;
+          margin-top: 16px;
+          font-size: 11px;
+          span {
+            gap: 5px;
+            svg {
+              width: 13px;
+              height: 13px;
+            }
+          }
+        }
+      }
+      .preview {
+        .previewGlow {
+          inset: -40px;
+        }
+        .card {
+          padding: 6px;
+          border-radius: 20px;
+          .cardInner {
+            padding: 16px;
+            border-radius: 15px;
+            .cardTop {
+              .cardKicker {
+                font-size: 10px;
+              }
+              .cardTitle {
+                margin-top: 4px;
+                font-size: 16px;
+                line-height: 22px;
+              }
+              .status {
+                padding: 4px 10px;
+                font-size: 10px;
+              }
+            }
+            .module {
+              margin-top: 16px;
+              & + .module {
+                margin-top: 12px;
+              }
+              .moduleRow {
+                margin-bottom: 8px;
+                font-size: 11px;
+              }
+              .bar {
+                height: 6px;
+              }
+            }
+            .next {
+              gap: 12px;
+              margin-top: 16px;
+              padding: 10px;
+              border-radius: 12px;
+              .nextIcon {
+                width: 36px;
+                height: 36px;
+                border-radius: 10px;
+                svg {
+                  width: 18px;
+                  height: 18px;
+                }
+              }
+              .nextInfo {
+                p:first-child {
+                  font-size: 13px;
+                }
+                p:last-child {
+                  margin-top: 2px;
+                  font-size: 11px;
+                }
+              }
+              .nextArrow {
+                width: 28px;
+                height: 28px;
+                svg {
+                  width: 14px;
+                  height: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 359px) {
+  .container .mainContainer .info h1 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 136px 32px 72px;
+    .mainContainer {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 80px;
+      .info h1 {
+        font-size: 52px;
+      }
+      .preview {
+        margin: 0 0 0 auto;
+      }
+    }
+  }
+}
